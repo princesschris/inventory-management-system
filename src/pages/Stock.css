@@ -1,0 +1,74 @@
+.stock-section {
+  margin-bottom: 24px;
+}
+
+.alert-success {
+  background: var(--success-bg);
+  color: var(--success);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.btn-success-outline {
+  background: var(--surface);
+  color: var(--success);
+  border-color: var(--success-bg);
+}
+
+.btn-success-outline:hover:not(:disabled) {
+  background: var(--success-bg);
+}
+
+/* Dialog extras */
+.dialog-sub {
+  margin-bottom: 16px;
+}
+
+.dialog .movement-result {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.dialog .hint-error {
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+/* History tabs */
+.history-error {
+  margin: 0 20px 16px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-tabs button {
+  padding: 6px 14px;
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.filter-tabs button:hover {
+  background: var(--primary-soft);
+}
+
+.filter-tabs button.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
