@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 
 const AuthContext = createContext(null)
@@ -50,6 +50,16 @@ export function AuthProvider({ children }) {
     }
   }, [userId])
 
+  const refreshProfile = useCallback(async () => {
+    if (!userId) return
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('id, full_name, role, active, business_id')
+      .eq('id', userId)
+      .maybeSingle()
+    setProfileState({ userId, profile: data, error: error?.message ?? '' })
+  }, [userId])
+
   const isCurrent = !!userId && profileState.userId === userId
   const profile = isCurrent ? profileState.profile : null
   const profileError = isCurrent ? profileState.error : ''
@@ -85,6 +95,7 @@ export function AuthProvider({ children }) {
         role: profile?.role ?? null,
         isAdmin: profile?.role === 'admin',
         isStaff: profile?.role === 'staff',
+        refreshProfile,
         register,
         login,
         logout,

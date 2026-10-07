@@ -1,0 +1,66 @@
+.business-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  margin-bottom: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.business-label {
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.business-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.business-code {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.business-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.business-help {
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.role-badge.admin {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.role-badge.staff {
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.muted-dash {
+  color: var(--text-muted);
+}

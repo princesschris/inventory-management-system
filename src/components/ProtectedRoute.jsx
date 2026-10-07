@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }) {
         <div className="auth-card" style={{ textAlign: 'center' }}>
           <h1>Account setup incomplete</h1>
           <p className="auth-subtitle">
-            Your account exists, but the app could not load its profile.
+            Your account isn't active right now. Ask the business owner to activate it.
           </p>
           {profileError && <div className="auth-error">{profileError}</div>}
           <button onClick={logout}>Log out</button>

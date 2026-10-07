@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { getStatus } from '../lib/productStatus'
@@ -8,6 +8,8 @@ import {
   BoxIcon,
   LayersIcon,
   ClockIcon,
+  UsersIcon,
+  UserIcon,
   SearchIcon,
   CalendarIcon,
   BellIcon,
@@ -111,7 +113,7 @@ export default function Layout() {
     return () => {
       cancelled = true
     }
-  }, [businessId, isAdmin])
+  }, [businessId, isAdmin, location.pathname])
 
   // Ctrl+K (or Cmd+K) focuses the search box
   useEffect(() => {
@@ -176,6 +178,11 @@ export default function Layout() {
           <NavLink to="/history">
             <ClockIcon /> History
           </NavLink>
+          {isAdmin && (
+            <NavLink to="/staff">
+              <UsersIcon /> Staff
+            </NavLink>
+          )}
         </nav>
 
         <div className="sidebar-promo">
@@ -268,6 +275,14 @@ export default function Layout() {
                         </>
                       )}
                     </div>
+
+                    <Link
+                      to="/profile"
+                      className="dropdown-link"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <UserIcon size={16} /> My profile
+                    </Link>
 
                     <button onClick={logout}>
                       <LogOutIcon size={16} /> Log out

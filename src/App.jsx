@@ -5,6 +5,8 @@ import PublicRoute from './components/PublicRoute'
 import AdminRoute from './components/AdminRoute'
 import Layout from './components/Layout'
 import Login from './pages/Login'
+import Staff from './pages/Staff'
+import Profile from './pages/Profile'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Products from './pages/Products'
@@ -31,6 +33,8 @@ export default function App() {
               path="/products/add"
               element={<AdminRoute><AddProduct /></AdminRoute>}
             />
+            <Route path="/staff" element={<AdminRoute><Staff /></AdminRoute>} />
+            <Route path="/profile" element={<Profile />} /> 
             <Route
               path="/products/:id"
               element={<AdminRoute><ProductDetails /></AdminRoute>}
